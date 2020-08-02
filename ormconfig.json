@@ -7,6 +7,6 @@
   "password": "postgres",
   "database": "typegraphql",
   "synchronize": true,
-  "logging": true,
+  "logging": false,
   "entities": ["src/entity/*.*"]
 }
