@@ -9,8 +9,6 @@ export class MeResolver {
     if (!ctx.req.session!.userId) {
       return undefined;
     }
-    console.log("hi");
-    console.log(ctx.req.session);
     return User.findOne(ctx.req.session!.userId);
   }
 }

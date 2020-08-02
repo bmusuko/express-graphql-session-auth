@@ -11,13 +11,14 @@ import { redis } from "./redis";
 import cors from "cors";
 import { LoginResolver } from "./modules/user/Login";
 import { MeResolver } from "./modules/user/Me";
+import { TestResolver } from "./modules/user/Test";
 
 dotenv.config();
 
 const main = async () => {
   await createConnection();
   const schema = await buildSchema({
-    resolvers: [RegisterResolver, LoginResolver, MeResolver],
+    resolvers: [RegisterResolver, LoginResolver, MeResolver, TestResolver],
   });
   const apolloServer = new ApolloServer({
     schema,
