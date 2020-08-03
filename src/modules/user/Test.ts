@@ -1,5 +1,5 @@
 import { Resolver, Query, UseMiddleware } from "type-graphql";
-import { isAuth } from "../middleware/IsAuth";
+import { isAuth } from "../middleware/isAuth";
 @Resolver()
 export class TestResolver {
   @UseMiddleware(isAuth)

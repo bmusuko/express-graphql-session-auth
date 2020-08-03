@@ -12,13 +12,20 @@ import cors from "cors";
 import { LoginResolver } from "./modules/user/Login";
 import { MeResolver } from "./modules/user/Me";
 import { TestResolver } from "./modules/user/Test";
+import { ConfirmUserResolver } from "./modules/user/ConfirmUser";
 
 dotenv.config();
 
 const main = async () => {
   await createConnection();
   const schema = await buildSchema({
-    resolvers: [RegisterResolver, LoginResolver, MeResolver, TestResolver],
+    resolvers: [
+      RegisterResolver,
+      LoginResolver,
+      MeResolver,
+      TestResolver,
+      ConfirmUserResolver,
+    ],
   });
   const apolloServer = new ApolloServer({
     schema,
