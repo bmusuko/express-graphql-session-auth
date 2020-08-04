@@ -3,29 +3,18 @@ import express from "express";
 import { buildSchema } from "type-graphql";
 import "reflect-metadata";
 import { createConnection } from "typeorm";
-import { RegisterResolver } from "./modules/user/Register";
 import session from "express-session";
 import dotenv from "dotenv";
 import connectRedis from "connect-redis";
 import { redis } from "./redis";
 import cors from "cors";
-import { LoginResolver } from "./modules/user/Login";
-import { MeResolver } from "./modules/user/Me";
-import { TestResolver } from "./modules/user/Test";
-import { ConfirmUserResolver } from "./modules/user/ConfirmUser";
 
 dotenv.config();
 
 const main = async () => {
   await createConnection();
   const schema = await buildSchema({
-    resolvers: [
-      RegisterResolver,
-      LoginResolver,
-      MeResolver,
-      TestResolver,
-      ConfirmUserResolver,
-    ],
+    resolvers: [__dirname + "/modules/**/*.ts"],
   });
   const apolloServer = new ApolloServer({
     schema,

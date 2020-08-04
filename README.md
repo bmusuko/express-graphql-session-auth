@@ -13,3 +13,4 @@
 - Add Documentation
 - Forgot Password
 - Logout
+- Error Handling

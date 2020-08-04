@@ -15,7 +15,7 @@ export async function sendEmail(email: string, url: string) {
   });
 
   const info = await transporter.sendMail({
-    from: '"Bram - Admin" <foo@example.com>', // sender address
+    from: '"Bram - Admin" <buramu@musuko.com>', // sender address
     to: email, // list of receivers
     subject: "Hello ✔", // Subject line
     text: "Hello world?", // plain text body
