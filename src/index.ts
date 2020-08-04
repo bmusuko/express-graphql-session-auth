@@ -8,6 +8,7 @@ import dotenv from "dotenv";
 import connectRedis from "connect-redis";
 import { redis } from "./redis";
 import cors from "cors";
+import { MyContext } from "./types/MyContext";
 
 dotenv.config();
 
@@ -18,7 +19,7 @@ const main = async () => {
   });
   const apolloServer = new ApolloServer({
     schema,
-    context: ({ req }: any) => ({ req }),
+    context: ({ req, res }: MyContext) => ({ req, res }),
   });
 
   const app = express();
